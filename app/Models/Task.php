@@ -1,10 +1,11 @@
 <?php
 namespace App\Models;
+
 use Illuminate\Database\Eloquent\Model;
 
 class Task extends Model
 {
-    protected $fillable = ['project_id', 'title', 'due_date', 'is_completed'];
+    protected $fillable = ['project_id','title','description','due_date','is_completed'];
 
     public function project()
     {

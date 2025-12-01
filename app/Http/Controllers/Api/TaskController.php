@@ -1,5 +1,6 @@
 <?php
 namespace App\Http\Controllers\Api;
+
 use App\Http\Controllers\Controller;
 use App\Models\Task;
 use Illuminate\Http\Request;
@@ -15,13 +16,13 @@ class TaskController extends Controller
             'due_date' => 'nullable|date'
         ]);
 
-        $task = Task::create($request->only(['project_id','title','due_date','is_completed']));
+        $task = Task::create($request->only(['project_id','title','description','due_date','is_completed']));
         return response()->json($task, Response::HTTP_CREATED);
     }
 
     public function update(Request $request, Task $task)
     {
-        $task->update($request->only(['title','due_date','is_completed']));
+        $task->update($request->only(['title','description','due_date','is_completed']));
         return response()->json($task, Response::HTTP_OK);
     }
 
